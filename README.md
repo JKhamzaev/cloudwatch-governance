@@ -2,6 +2,8 @@
 
 AWS Account Compliance Auditing & Remediation Tool
 
+
+
 ## Architecture
 
 ```
@@ -19,10 +21,14 @@ frontend/         React dashboard (Vite + Recharts)
 
 ## Running locally (quickstart — no AWS needed)
 
+**Requirements:** Python 3.11–3.13 (not 3.14), Node.js 18+
+
 ```bash
 # 1. Backend
 cd backend
-pip install -r requirements.txt
+python3 -m venv venv
+source venv/bin/activate
+pip install fastapi uvicorn boto3 sqlalchemy
 uvicorn main:app --reload
 # API live at http://localhost:8000
 # Docs at http://localhost:8000/docs
