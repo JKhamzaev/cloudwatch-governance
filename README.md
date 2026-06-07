@@ -2,6 +2,8 @@
 
 AWS Account Compliance Auditing & Remediation Tool
 
+<img width="2370" height="1407" alt="image" src="https://github.com/user-attachments/assets/b87ddc18-ecbe-4e6d-963b-ad40da95c240" />
+
 
 
 ## Architecture
