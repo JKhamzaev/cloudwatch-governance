@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: governance
+      POSTGRES_PASSWORD: governance
+      POSTGRES_DB: compliance
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://governance:governance@db:5432/compliance
+      AWS_REGION: us-east-1
+      # AWS_ACCESS_KEY_ID: your_key (optional - falls back to demo mode)
+      # AWS_SECRET_ACCESS_KEY: your_secret
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+
+volumes:
+  pgdata:
